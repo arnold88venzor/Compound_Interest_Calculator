@@ -1,0 +1,38 @@
+# Define a function to calculate compound interest.
+def calculate_compound_interest(principal: float, rate: float, years: int) -> float:
+    """
+    Calculate compound interest with monthly compounding.
+    
+    Args:
+        principal: Initial investment amount.
+        rate: Annual interest rate (in decimal form, e.g., 0.05 for 5%).
+        years: Number of years for the investment.
+        
+    Returns:
+        final_amount: Rounded amount after compound interest is applied.
+    """
+    # Compound interest formula for monthly compounding:
+    # final_amount = principal * (1 + (rate / 12)) ** (12 * years)
+    final_amount = principal * (1 + rate / 12) ** (12 * years)
+    return round(final_amount, 2)
+
+# Main function to interact with the user and display results.
+def main():
+    # Get user input for investment parameters: principal, rate, years
+    principal = float(input("Enter initial investment amount: $"))
+    rate = float(input("Enter annual interest rate (e.g., 0.05 for 5%): "))
+    years = int(input("Enter number of years: "))
+    
+    # Call function to calculate compound interest and display the results.
+    final_amount = calculate_compound_interest(principal, rate, years)
+    interest_earned = final_amount - principal
+    
+    # Print the results to the user.
+    print(f"\nResults:")
+    print(f"Initial Investment: ${principal:,.2f}")
+    print(f"Final Amount: ${final_amount:,.2f}")
+    print(f"Interest Earned: ${interest_earned:,.2f}")
+
+# Run the main function if this script is executed directly.
+if __name__ == "__main__":
+    main()
