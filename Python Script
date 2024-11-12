@@ -36,3 +36,26 @@ def main():
 # Run the main function if this script is executed directly.
 if __name__ == "__main__":
     main()
+
+
+
+# Visualization using Matplotlib
+
+import matplotlib.pyplot as plt
+
+def plot_growth(principal, rate, years):
+    time_range = range(1, years + 1)
+    growth = [calculate_compound_interest(principal, rate, t) for t in time_range]
+    
+    plt.figure(figsize=(10, 6))
+    plt.plot(time_range, growth, marker='o', linestyle='-', color='b')
+    plt.title("Investment Growth Over Time with Monthly Compounding")
+    plt.xlabel("Years")
+    plt.ylabel("Investment Value ($)")
+    plt.grid(True)
+    plt.show()
+
+# Example usage
+plot_growth(1000, 0.05, 10)
+
+
